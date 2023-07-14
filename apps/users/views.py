@@ -1,6 +1,7 @@
 from rest_framework import status
+from rest_framework.filters import SearchFilter
 from rest_framework.generics import RetrieveAPIView, get_object_or_404
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
@@ -8,7 +9,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.users.models import Teacher, Rating, Subscribe, Wishlist
 from apps.users.serializers import (TeacherModelSerializer, TeacherDetailModelSerializer, RatingModelSerializer,
-                                    SubscriptionSerializer)
+                                    SubscriptionSerializer, WishListModelSerializer)
 from apps.users.services import register_service, reset_password_service, reset_password_confirm_service
 
 
@@ -109,3 +110,12 @@ class WishListModelViewSet(ModelViewSet):
 
     def perform_destroy(self, instance):
         instance.delete()
+
+
+#  Search for Teachers API
+class TeacherSearchListAPIView(ModelViewSet):
+    queryset = Teacher.objects.all()
+    serializer_class = TeacherModelSerializer
+    filter_backends = [SearchFilter]
+    search_fields = ['teaching_subject', 'teaching_language']
+    permission_classes = [AllowAny]
