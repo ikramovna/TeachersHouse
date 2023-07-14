@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer
 
-from apps.users.models import Teacher, Rating, Subscribe, Wishlist
+from apps.teachers.models import Teacher, Rating, Subscribe, Wishlist
 
 
 

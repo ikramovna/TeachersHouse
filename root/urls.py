@@ -8,7 +8,7 @@ from root.swagger import swagger_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apps.users.urls')),
+    path('', include('apps.teachers.urls')),
 
 
               ] + swagger_urls + static(MEDIA_URL, document_root=MEDIA_ROOT)

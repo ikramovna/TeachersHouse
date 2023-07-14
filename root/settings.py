@@ -16,7 +16,7 @@ load_dotenv()
 ALLOWED_HOSTS = ['*']
 
 MY_APPS = [
-    'apps.users',
+    'apps.teachers',
     # 'apps.products',
 ]
 
