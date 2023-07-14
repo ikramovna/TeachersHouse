@@ -3,12 +3,13 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 
+from apps.users.views import ResetPasswordAPIView, PasswordResetConfirmAPIView
 from root.settings import MEDIA_URL, MEDIA_ROOT
 from root.swagger import swagger_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('apps.users.urls')),
+    path('', include('apps.users.urls')),
 
     # JWT
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

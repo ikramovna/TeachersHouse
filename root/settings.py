@@ -23,6 +23,7 @@ MY_APPS = [
 THIRD_PARTY_APPS = [
     'rest_framework',
     'drf_yasg',
+    'django_filters',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
 
@@ -81,20 +82,20 @@ DATABASES = {
     }
 }
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.accounts.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.accounts.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.accounts.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.accounts.password_validation.NumericPasswordValidator',
-    },
-]
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.accounts.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.accounts.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.accounts.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.accounts.password_validation.NumericPasswordValidator',
+#     },
+# ]
 
 LANGUAGE_CODE = 'en-us'
 
@@ -114,10 +115,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # DRF Config
 
-REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': [
-        'django_filters.rest_framework.DjangoFilterBackend'
-    ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 10
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_FILTER_BACKENDS': [
+#         'django_filters.rest_framework.DjangoFilterBackend'
+#     ],
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+#     'PAGE_SIZE': 10
+# }
