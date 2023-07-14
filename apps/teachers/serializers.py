@@ -1,15 +1,13 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer
 
-from apps.teachers.models import Teacher, Rating, Subscribe, Wishlist
-
-
+from apps.teachers.models import Teacher, Rating, Subscribe, Wishlist, Subject
 
 
 class TeacherModelSerializer(ModelSerializer):
     class Meta:
         model = Teacher
-        fields = 'full_name', 'bio'
+        fields = ('full_name', 'bio')
 
 
 class TeacherDetailModelSerializer(ModelSerializer):
@@ -33,4 +31,10 @@ class SubscriptionSerializer(ModelSerializer):
 class WishListModelSerializer(ModelSerializer):
     class Meta:
         model = Wishlist
+        fields = '__all__'
+
+
+class SubjectSerializer(ModelSerializer):
+    class Meta:
+        model = Subject
         fields = '__all__'

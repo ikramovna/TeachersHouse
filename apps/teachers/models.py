@@ -1,5 +1,7 @@
 from django.db.models import (Model, CharField, EmailField, TextChoices, IntegerField, TextField, ImageField,
-                              ForeignKey, PositiveIntegerField, DateTimeField, CASCADE)
+                              ForeignKey, PositiveIntegerField, DateTimeField, CASCADE, ManyToManyField)
+
+from apps.teachers.models import Subject
 
 
 class Teacher(Model):
@@ -23,7 +25,7 @@ class Teacher(Model):
     experience = IntegerField()
     bio = TextField()
     image = ImageField(upload_to='teachers/image/')
-
+    subject = ManyToManyField(Subject)
 
 #  Rating API
 class Rating(Model):
@@ -46,3 +48,8 @@ class Wishlist(Model):
     product = ForeignKey('Teacher', CASCADE)
     user = ForeignKey('auth.User', CASCADE)
     created_at = DateTimeField(auto_now=True)
+
+
+# Subject API
+class Subject(Model):
+    name = CharField(max_length=255)

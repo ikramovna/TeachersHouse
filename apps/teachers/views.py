@@ -1,6 +1,6 @@
 from rest_framework import status
 from rest_framework.filters import SearchFilter
-from rest_framework.generics import RetrieveAPIView, get_object_or_404
+from rest_framework.generics import RetrieveAPIView, get_object_or_404, ListAPIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -79,3 +79,12 @@ class TeacherSearchListAPIView(ModelViewSet):
     filter_backends = [SearchFilter]
     search_fields = ['teaching_subject', 'teaching_language']
     permission_classes = [AllowAny]
+
+
+# Subject API
+class TeacherListByTopicAPIView(ListAPIView):
+    serializer_class = TeacherModelSerializer
+
+    def get_queryset(self):
+        teaching_subject = self.request.query_params.get('topic', '')
+        return Teacher.objects.filter(topics__name__iexact=teaching_subject)
