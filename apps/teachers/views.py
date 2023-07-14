@@ -7,9 +7,9 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from apps.users.models import Teacher, Rating, Subscribe, Wishlist
-from apps.users.serializers import (TeacherModelSerializer, TeacherDetailModelSerializer, RatingModelSerializer,
-                                    SubscriptionSerializer, WishListModelSerializer)
+from apps.teachers.models import Teacher, Rating, Subscribe, Wishlist
+from apps.teachers.serializers import (TeacherModelSerializer, TeacherDetailModelSerializer, RatingModelSerializer,
+                                       SubscriptionSerializer, WishListModelSerializer)
 
 
 #  Teacher/List API
