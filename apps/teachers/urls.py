@@ -2,8 +2,10 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework.viewsets import ModelViewSet
 
+
 from apps.teachers.views import (TeacherModelViewSet, TeacherDetailRetrieveAPIView,
-                                 RatingModelViewSet, SubscribeModelViewSet, WishListModelViewSet, TeacherSearchListAPIView)
+                                 RatingModelViewSet, SubscribeModelViewSet, WishListModelViewSet,
+                                 TeacherSearchListAPIView)
 
 routers = DefaultRouter()
 routers.register('teachers', TeacherModelViewSet)
