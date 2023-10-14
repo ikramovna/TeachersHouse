@@ -27,21 +27,7 @@ class Teacher(Model):
     image = ImageField(upload_to='teachers/image/')
     subject = ManyToManyField(Subject)
 
-
-
-class Wishlist(Model):
-    product = ForeignKey('Teacher', CASCADE)
-    user = ForeignKey('auth.User', CASCADE)
-    created_at = DateTimeField(auto_now=True)
-
-
-class Subject(Model):
-    name = CharField(max_length=255)
-
-class Subscribe(Model):
-    email = EmailField()
-    subscribe_at = DateTimeField(auto_now_add=True)
-
+#  Rating API
 class Rating(Model):
     user = ForeignKey('auth.User', CASCADE)
     teacher = ForeignKey('Teacher', CASCADE)
@@ -50,3 +36,20 @@ class Rating(Model):
 
     def __str__(self):
         return self.user
+
+
+# Subscribe API
+class Subscribe(Model):
+    email = EmailField()
+    subscribe_at = DateTimeField(auto_now_add=True)
+
+
+class Wishlist(Model):
+    product = ForeignKey('Teacher', CASCADE)
+    user = ForeignKey('auth.User', CASCADE)
+    created_at = DateTimeField(auto_now=True)
+
+
+# Subject API
+class Subject(Model):
+    name = CharField(max_length=255)
