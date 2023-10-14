@@ -29,22 +29,6 @@ class Teacher(Model):
 
 
 
-class Rating(Model):
-    user = ForeignKey('auth.User', CASCADE)
-    teacher = ForeignKey('Teacher', CASCADE)
-    rating = PositiveIntegerField()
-    created_at = DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.user
-
-
-
-class Subscribe(Model):
-    email = EmailField()
-    subscribe_at = DateTimeField(auto_now_add=True)
-
-
 class Wishlist(Model):
     product = ForeignKey('Teacher', CASCADE)
 
