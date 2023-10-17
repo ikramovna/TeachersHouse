@@ -8,11 +8,12 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.teachers.models import Teacher, Rating, Subscribe, Wishlist
-from apps.teachers.serializers import (TeacherModelSerializer, TeacherDetailModelSerializer, RatingModelSerializer,
-                                       SubscriptionSerializer, WishListModelSerializer)
+from apps.teachers.serializers import (TeacherModelSerializer, 
+                                       TeacherDetailModelSerializer,
+                                       RatingModelSerializer,
+                                       SubscriptionSerializer, 
+                                       WishListModelSerializer)
 
-
-#  Teacher/List API
 
 class TeacherModelViewSet(ModelViewSet):
     queryset = Teacher.objects.all()
@@ -21,7 +22,6 @@ class TeacherModelViewSet(ModelViewSet):
     permission_classes = ()
 
 
-#  Teacher/Detail API
 
 class TeacherDetailRetrieveAPIView(RetrieveAPIView):
     queryset = Teacher.objects.all()
@@ -29,20 +29,19 @@ class TeacherDetailRetrieveAPIView(RetrieveAPIView):
     permission_classes = ()
 
 
-# Rating API
+
 class RatingModelViewSet(ModelViewSet):
     queryset = Rating.objects.all()
     serializer_class = RatingModelSerializer
 
 
-# Subscribe API
+
 class SubscribeModelViewSet(ModelViewSet):
     queryset = Subscribe.objects.all()
     serializer_class = SubscriptionSerializer
 
 
-#  Wishlist API
-# WishList
+
 class WishListModelViewSet(ModelViewSet):
     queryset = Wishlist.objects.all()
     serializer_class = WishListModelSerializer
@@ -72,7 +71,6 @@ class WishListModelViewSet(ModelViewSet):
         instance.delete()
 
 
-#  Search for Teachers API
 class TeacherSearchListAPIView(ModelViewSet):
     queryset = Teacher.objects.all()
     serializer_class = TeacherModelSerializer
@@ -81,7 +79,6 @@ class TeacherSearchListAPIView(ModelViewSet):
     permission_classes = [AllowAny]
 
 
-# Subject API
 class TeacherListByTopicAPIView(ListAPIView):
     serializer_class = TeacherModelSerializer
 
