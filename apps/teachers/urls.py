@@ -16,8 +16,7 @@ routers.register('search_teacher', TeacherSearchListAPIView)
 
 urlpatterns = [
     path('', include(routers.urls)),
-
-    #  Teacher
+  
     path('teacher_detail/<int:pk>', TeacherDetailRetrieveAPIView.as_view(), name='teachers'),
 
 ]
